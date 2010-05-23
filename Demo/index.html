@@ -7,12 +7,12 @@
 		<style type="text/css" media="screen">
 			/* PAGE STYLING - IGNORE */
 			*				{font-size:1em;}
-			body			{color:#333333; text-align:center; font:13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif; background-color:#E5F9FF;}
-			html 			{overflow: auto; background-color: #fff; -webkit-font-smoothing: antialiased;}
-			h1				{font-size:1.3em;}
+			body			{margin:0; padding:0; background-color:#333333; text-align:center; font:13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif; background-color:#E5F9FF;}
+			html 			{height:100%;background-color:#333333; overflow: auto; background-color: #fff; -webkit-font-smoothing: antialiased; margin:0; padding:0;}
+			h1				{font-size:2.3em;margin:0;padding:10px 0;}
 			p				{width:400px;margin:auto;padding:10px 0;}
-			.demo-box		{text-align:left; padding:10px; width:500px; border:1px solid #b6b6b6; float:left;background-color:#fff;}
-			.demo-box h2	{text-align:center; font-size:1.2em; padding:0; margin:0;}
+			.demo-box		{text-align:left; padding:10px; width:500px; height:525px; border:1px solid #b6b6b6; float:left;background-color:#fff;}
+			.demo-box h2	{text-align:center; font-size:1.5em; padding:0; margin:0;}
 			p.breaker		{clear:both;}
 			code			{border-top:1px solid #CCC; border-bottom:1px solid #CCC; background-color:#eee;}
 			/* END PAGE STYLING */
@@ -23,6 +23,9 @@
 			}
 			.flickr-items div {
 				margin:10px auto;
+				width:110px;
+				height:110px;
+				line-height:110px;
 			}
 			.flickr-items div.even	{
 				float:left;
@@ -31,14 +34,6 @@
 			.flickr-items div.odd	{
 				float:right;
 				clear:right;
-			}
-			.flickr-items div img	{
-				padding:4px;
-				border:1px solid #DDDDDD;
-				vertical-align:middle;
-				-webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-				-moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-				box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 			}
 			#demo3list {width:400px;}
 		</style>
@@ -53,7 +48,7 @@
 
 				var ss = new SimpleShow('container');
 
-				var c1,c2,c3;
+				var c1,c2,c3,c4;
 				c1 = new MooFlick('demo1list', '10901345@N05');
 
 				ss.addEvent('onSlideShow',function(e){
@@ -65,46 +60,57 @@
 						case 3:
 							if ( !c3)	c3 = new MooFlick('demo3list', '10901345@N05', {num:2,size_reduction:0.8,delay:0});
 							break;
+						case 4:
+							if ( !c4) {
+								c4 = new MooFlick('demo4list', '10901345@N05', {num:1,size_reduction:1});
+								c4.addEvent('onAdd', function(){
+									document.id('demo4list').adopt(new Element("p",{'styles':{'clear':'both'}}).set('html','<code>onAdd</code> fired!'))
+								})
+								c4.addEvent('onShow', function(data){
+									//data.morph({'-moz-transform':'rotate(50deg)'})
+									document.id('demo4list').adopt(new Element("p").set('html','<code>onShow</code> fired!'))
+								})
+							}
+							break;
 					}
 				})
-
-				// First demo
-				//var c1 = new MooFlick('demo1list', '10901345@N05');
-
-				// Second demo
-				//var c2 = new MooFlick('demo2list', '10901345@N05', {max_rotation:25,num:4});
-
-				// Third demo
-				//var c2 = new MooFlick('demo3list', '10901345@N05', {num:2,size_reduction:0.8,delay:0});
 			})
 		</script>
 	</head>
 	<body>
 		<h1>MooFlick Demo</h1>
 
-		<p>MooFlick is a simple Mootools plugin to grab and display the latest images from your flickr account. It comes with configuration options as standard and allows further customisation through the use of custom events</p>
+		<p>MooFlick is a simple Mootools plugin to grab and display the latest images from your flickr account. It comes with configuration options as standard and allows further customisation through the use of custom events.</p>
 
-		<p>Simply view the source to see the code for each demo</p>
+		<p>Simply view the source to see the code for each demo:</p>
 
 		<div id="container">
 			<div id="demo1" class="demo-box">
 				<h2> Demo 1 </h2>
 				<div id="demo1list" class="flickr-items"></div>
-				<p class="breaker">The above shows the default settings for a MooFlick instance</p>
+				<p class="breaker">The above shows the default settings for a MooFlick instance.</p>
 			</div>
 
 			<div id="demo2" class="demo-box">
 				<h2>Demo 2</h2>
 				<div id="demo2list" class="flickr-items"></div>
-				<p class="breaker">Rotation is generated at random though you can set <code>max_rotation</code> to alter the maximum rotation limits. You can also set <code>num</code> in order to change the number of images loaded</p>
+				<p class="breaker">Rotation is generated at random though you can set <code>max_rotation</code> to alter the maximum rotation limits. You can also set <code>num</code> in order to change the number of images loaded.</p>
 			</div>
 
 			<div id="demo3" class="demo-box">
 				<h2>Demo 3</h2>
 				<div id="demo3list" class="flickr-items"></div>
-				<p class="breaker">You can change the size reduction of the images through <code>size_reduction</code> and also amend the delay with which the images are added to the page through the <code>delay</code> option</p>
+				<p class="breaker">You can change the size reduction of the images through <code>size_reduction</code> and also amend the delay with which the images are added to the page through the <code>delay</code> option.</p>
+			</div>
+
+			<div id="demo4" class="demo-box">
+				<h2>Demo 4</h2>
+				<div id="demo4list" class="flickr-items"></div>
+				<p class="breaker">The class fires two custom events.<code>onAdd</code> when the image is added to the DOM and <code>onShow</code> after the image add effect has been complete (and the image is visable)</p>
 			</div>
 		</div>
+
+		<p class="breaker"><a href="http://www.ninjapenguin.co.uk" title="view my homepage">www.ninjapenguin.co.uk</a></p>
 
 	</body>
 </html>
