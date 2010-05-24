@@ -1,11 +1,14 @@
 MooFlick
 ===========
 
-Basic widget to display images from the Flickr JSON feed
+Basic widget to display images from the Flickr JSON feed. Grabs a defineable number of the latest images, resizes and displays on page with visual effect. Styles and rotates images to look like small polaroid previews (optional)
 
 See included demo for detailed usage instructions
 
 ![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/mf.png)
+![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s1.png)
+![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s2.png)
+![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s3.png)
 
 How to use
 ----------
