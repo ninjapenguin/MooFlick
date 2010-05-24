@@ -26,8 +26,6 @@ To use the plugin simply instantiate the class and give it the id of the target 
 	}
 	#flickr-items div {
 		margin:10px auto;
-		width:110px;
-		height:110px;
 		line-height:110px;
 	}
 	#flickr-items div.even	{

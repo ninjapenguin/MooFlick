@@ -106,7 +106,13 @@ var MooFlick = new Class({
 		var max = (dest_height > dest_width) ? dest_height : dest_width ;
 		var rot = $random(-this.options.max_rotation,this.options.max_rotation)
 
-		img.set('styles',{'height':0,'width':0});
+		img.set('styles',{
+			'height':0,
+			'width':0,
+			'-webkit-box-shadow': '3px 3px 10px rgba(0, 0, 0, 0.3)',
+			'-moz-box-shadow': '3px 3px 10px rgba(0, 0, 0, 0.3)',
+			'box-shadow': '3px 3px 10px rgba(0, 0, 0, 0.3)'
+			});
 		container.set('styles',{'height':max+8,'width':max+8, 'text-align':'center'})
 
 		container.fade('in');
@@ -117,10 +123,7 @@ var MooFlick = new Class({
 			'-moz-transform':'rotate('+rot+'deg)',
 			'-webkit-transform':'rotate('+rot+'deg)',
 			'padding':'4px',
-			'border':'1px solid #DDDDDD',
-			'-webkit-box-shadow': '2px 2px 10px rgba(0, 0, 0, 0.2)',
-			'-moz-box-shadow': '2px 2px 10px rgba(0, 0, 0, 0.2)',
-			'box-shadow': '2px 2px 10px rgba(0, 0, 0, 0.2)'
+			'border':'1px solid #DDDDDD'
 		}).chain(function(){
 			this.fireEvent('onShow', img)
 		}.bind(this));
