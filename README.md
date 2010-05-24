@@ -7,10 +7,6 @@ See included demo for detailed usage instructions
 
 ![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/mf.png)
 
-![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s1.png)
-![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s2.png)
-![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s3.png)
-
 How to use
 ----------
 
@@ -18,6 +14,7 @@ To use the plugin simply instantiate MooFlick and give it the id of the target c
 
 	#HTML
 	<div id="flickr-items"></div>
+
 
 	#CSS
 	#flickr-items	{
@@ -37,6 +34,7 @@ To use the plugin simply instantiate MooFlick and give it the id of the target c
 		float:right;
 		clear:right;
 	}
+
 
 	#JS
 	window.addEvent('domready', function(){
@@ -64,6 +62,11 @@ Options
 * max_rotation		: (int) 	[default = 8] The maximum rotation, setting rotation = 20 would given 40 degress of possible rotation (-20 to 20 degrees)
 * size_reduction	: (decimal)	[default = 0.4] The scale down factor, set to 1 for no scaling, 0.4 = 40% of original size
 
+Screenshots
+-----------
+![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s1.png)
+![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s2.png)
+![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s3.png)
 
 Known Issues
 ------------
