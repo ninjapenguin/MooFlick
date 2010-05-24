@@ -103,24 +103,24 @@ var MooFlick = new Class({
 		var t_size = img.getSize();
 		var dest_height = t_size.y * this.options.size_reduction;
 		var dest_width = t_size.x * this.options.size_reduction;
+		var max = (dest_height > dest_width) ? dest_height : dest_width ;
 		var rot = $random(-this.options.max_rotation,this.options.max_rotation)
 
-		img.set({'height':0,'width':0});
-		container.set('styles',{'height':dest_height+8,'width':dest_width+8})
+		img.set('styles',{'height':0,'width':0});
+		container.set('styles',{'height':max+8,'width':max+8, 'text-align':'center'})
 
 		container.fade('in');
 		img.get('morph').start({
-			'margin':'auto',
 			'height':dest_height,
 			'width':dest_width,
+			'vertical-align':'middle',
 			'-moz-transform':'rotate('+rot+'deg)',
 			'-webkit-transform':'rotate('+rot+'deg)',
 			'padding':'4px',
-			'vertical-align':'middle',
 			'border':'1px solid #DDDDDD',
 			'-webkit-box-shadow': '2px 2px 10px rgba(0, 0, 0, 0.2)',
 			'-moz-box-shadow': '2px 2px 10px rgba(0, 0, 0, 0.2)',
-			'box-shadow': '2px 2px 10px rgba(0, 0, 0, 0.2)',
+			'box-shadow': '2px 2px 10px rgba(0, 0, 0, 0.2)'
 		}).chain(function(){
 			this.fireEvent('onShow', img)
 		}.bind(this));
