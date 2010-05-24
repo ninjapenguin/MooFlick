@@ -16,11 +16,16 @@ To use the plugin simply instantiate the class and give it the id of the target 
 	<div id="flickr-items"></div>
 
 	#CSS
-	#flickr-items div	{
-		text-align:center;
-		width:115px;
-		height:115px;
-		line-height:115px;
+	#flickr-items	{
+		width:250px;
+		margin:15px auto;
+		height:400px;  /* Only for demo purposes - you can remove this*/
+	}
+	#flickr-items div {
+		margin:10px auto;
+		width:110px;
+		height:110px;
+		line-height:110px;
 	}
 	#flickr-items div.even	{
 		float:left;
@@ -30,26 +35,20 @@ To use the plugin simply instantiate the class and give it the id of the target 
 		float:right;
 		clear:right;
 	}
-	#flickr-items div img	{
-		padding:4px;
-		border:1px solid #DDDDDD;
-		vertical-align:middle;
-		-webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-		-moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-		box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-	}
 
 	#JS
 	window.addEvent('domready', function(){
 		var mf = new MooFlick('flickr-items','10901345@N05', {});
 	})
 
+The above assumes the target area has an id of flickr-items. For working examples check out the demo!
+
 Thats all!
 
 Known Issues
 -----------------
-There are no knows issues at this time.
+Image rotation is only visible in the browsers that support it (IE does NOT support it)
 
-The plugin has been tested in Safari, Firefox, Chrome and IE.
+The plugin has been tested in Safari, Firefox, Chrome and IE (7 and 8).
 
 Any feedback greatly appreciated!
