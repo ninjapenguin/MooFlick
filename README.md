@@ -6,6 +6,7 @@ Basic widget to display images from the Flickr JSON feed. Grabs a defineable num
 See included demo for detailed usage instructions
 
 ![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/mf.png)
+
 ![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s1.png)
 ![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s2.png)
 ![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/s3.png)
@@ -13,7 +14,7 @@ See included demo for detailed usage instructions
 How to use
 ----------
 
-To use the plugin simply instantiate the class and give it the id of the target container (usually a div) and your flickr id.
+To use the plugin simply instantiate MooFlick and give it the id of the target container (usually a div) and your flickr id.
 
 	#HTML
 	<div id="flickr-items"></div>
@@ -46,8 +47,26 @@ The above assumes the target area has an id of flickr-items. For working example
 
 Thats all!
 
+Syntax
+------
+	new MooFlick($('target), 'flickr_user_id', [options])
+
+Arguments
+---------
+1. Element - (element) The DMO element where the flickr images will be placed
+2. Flickr user id - (int) The user id for which you will display the latest images
+
+Options
+-------
+* num				: (int) 	[default = 6] The number of images to display (min 1 max 20)
+* url				: (string) 	[default = current] The url of the flickr API (incase they ever change!)
+* delay				: (int) 	[default = 350] The delay between adding each image to the page (in microseconds, 0 for no delay)
+* max_rotation		: (int) 	[default = 8] The maximum rotation, setting rotation = 20 would given 40 degress of possible rotation (-20 to 20 degrees)
+* size_reduction	: (decimal)	[default = 0.4] The scale down factor, set to 1 for no scaling, 0.4 = 40% of original size
+
+
 Known Issues
------------------
+------------
 Image rotation is only visible in the browsers that support it (IE does NOT support it)
 
 The plugin has been tested in Safari, Firefox, Chrome and IE (7 and 8).
