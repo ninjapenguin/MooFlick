@@ -3,6 +3,8 @@ MooFlick
 
 Basic widget to display images from the Flickr JSON feed. Grabs a defineable number of the latest images, resizes and displays on page with visual effect. Styles and rotates images to look like small polaroid previews (optional)
 
+More's Request.JSONP used to fetch external images after page load so image loading has no effect on page load time
+
 See included demo for detailed usage instructions
 
 ![Screenshot](http://github.com/ninjapenguin/MooFlick/raw/master/Images/mf.png)
@@ -12,9 +14,12 @@ How to use
 
 To use the plugin simply instantiate MooFlick and give it the id of the target container (usually a div) and your flickr id.
 
+HTML target div
+
 	#HTML
 	<div id="flickr-items"></div>
 
+Basic CSS styling, you can update this how you like
 
 	#CSS
 	#flickr-items	{
@@ -35,6 +40,7 @@ To use the plugin simply instantiate MooFlick and give it the id of the target c
 		clear:right;
 	}
 
+Instantiate the MooFlick class to fetch the images asynchronously
 
 	#JS
 	window.addEvent('domready', function(){
